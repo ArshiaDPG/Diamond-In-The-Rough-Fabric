@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ditr:block/obsidian_diamond_ore"
+    }
+  }
+}
