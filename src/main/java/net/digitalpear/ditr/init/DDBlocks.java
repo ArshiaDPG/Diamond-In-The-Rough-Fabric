@@ -37,6 +37,6 @@ public class DDBlocks {
 
 
     public static void init(){
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> entries.addAfter(Items.NETHER_GOLD_ORE, OBSIDIAN_DIAMOND_ORE));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> entries.addAfter(Items.DEEPSLATE_DIAMOND_ORE, OBSIDIAN_DIAMOND_ORE));
     }
 }
