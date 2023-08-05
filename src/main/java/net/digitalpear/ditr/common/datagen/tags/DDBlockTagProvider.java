@@ -30,7 +30,8 @@ public class DDBlockTagProvider extends FabricTagProvider<Block> {
         super(output, Registries.BLOCK.getKey(), registriesFuture);
     }
 
-    public static final TagKey<Block> OBSIDIAN_DIAMOND_ORE_REPLACEABLES = of("obsidian_diamond_ore_replaceables");
+    public static final TagKey<Block> OBSIDIAN_ORE_REPLACEABLES = of("obsidian_ore_replaceables");
+    public static final TagKey<Block> DRAGON_MADE_ORES = of("dragon_made_ores");
 
     private static TagKey<Block> of(String id) {
         return TagKey.of(RegistryKeys.BLOCK, new Identifier(DiamondInTheRough.MOD_ID, id));
@@ -42,6 +43,10 @@ public class DDBlockTagProvider extends FabricTagProvider<Block> {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
         getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
-        getOrCreateTagBuilder(OBSIDIAN_DIAMOND_ORE_REPLACEABLES).add(Blocks.OBSIDIAN);
+
+        getOrCreateTagBuilder(OBSIDIAN_ORE_REPLACEABLES).add(Blocks.OBSIDIAN);
+        getOrCreateTagBuilder(DRAGON_MADE_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
+
+
     }
 }
