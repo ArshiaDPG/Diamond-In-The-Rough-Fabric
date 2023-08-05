@@ -6,7 +6,10 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.DragonFireballEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
@@ -22,12 +25,16 @@ public class DiamondInTheRough implements ModInitializer {
     public void onInitialize() {
         DDBlocks.init();
 
-        registerObsidianFireballEvent();
+        if (FabricLoader.getInstance().isDevelopmentEnvironment()){
+            registerFireballConversion(EntityType.FIREBALL);
+        }
+
+        registerFireballConversion(EntityType.DRAGON_FIREBALL);
     }
 
-    public static void registerObsidianFireballEvent() {
+    public static void registerFireballConversion(EntityType<?> fireball){
         ServerEntityEvents.ENTITY_UNLOAD.register((entity, world) -> {
-            if (entity instanceof DragonFireballEntity && world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+            if (entity.getType() == fireball && world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) && !(world.getGameRules().getInt(DIAMOND_CONVERSION_PERCENTAGE) < 1)) {
                 BlockPos blockPos = entity.getBlockPos();
                 int width = world.random.nextBetween(2, 4);
 
@@ -43,14 +50,6 @@ public class DiamondInTheRough implements ModInitializer {
     }
 
     public static boolean yesDiamond(World world){
-        if (world.getGameRules().getInt(DIAMOND_CONVERSION_PERCENTAGE) > 100){
-            return true;
-        }
-        else if (world.getGameRules().getInt(DIAMOND_CONVERSION_PERCENTAGE) < 1){
-            return false;
-        }
-        else{
-            return (world.random.nextBetween(1, 100) <= world.getGameRules().getInt(DIAMOND_CONVERSION_PERCENTAGE));
-        }
+        return (world.random.nextBetween(1, 100) <= world.getGameRules().getInt(DIAMOND_CONVERSION_PERCENTAGE));
     }
 }
