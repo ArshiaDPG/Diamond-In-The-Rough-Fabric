@@ -114,9 +114,7 @@ unifiedPublishing {
         displayName = "${project.minecraft_version}-fabric-${project.mod_version}" // Optional, name of the file
         version = "${project.mod_version}" // Optional, Inferred from project by default
         changelog = '''<ul>
-  <li>Renamed "obsidian_diamond_ore_replaceables" tag to "obsidian_ore_replaceables".</li>
-  <li>Renamed "dragon_made_ores" tag, which defines a list of blocks that will randomly be chosen as replacements.</li>
-  <li>Rewrote worldgen code to be more efficient.</li>
+  <li>Fixed ores not generating sometimes.</li>
 </ul> '''
         releaseType = "release" // Optional, use "release", "beta" or "alpha"
         gameVersions = ["${project.minecraft_version}", "1.20"]
