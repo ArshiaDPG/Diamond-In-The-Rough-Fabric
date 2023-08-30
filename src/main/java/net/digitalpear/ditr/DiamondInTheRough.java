@@ -14,12 +14,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DiamondInTheRough implements ModInitializer {
     public static final String MOD_ID = "ditr";
+    public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+
 
     public static final GameRules.Key<GameRules.IntRule> DIAMOND_CONVERSION_PERCENTAGE = GameRuleRegistry.register("diamondConversionPercentage",
             GameRules.Category.MOBS, GameRuleFactory.createIntRule(40));
@@ -48,16 +52,22 @@ public class DiamondInTheRough implements ModInitializer {
                 List<Block> ores = new ArrayList<>();
                 Registries.BLOCK.iterateEntries(DDBlockTagProvider.DRAGON_MADE_ORES).forEach((entry) -> ores.add(entry.value()));
 
-                BlockPos.iterate(blockPos.add(-width, -width, -width), blockPos.add(width, width, width)).forEach(pos -> {
-                    if (world.getBlockState(pos).isIn(DDBlockTagProvider.OBSIDIAN_ORE_REPLACEABLES) && (pos.getSquaredDistance(blockPos) <= (double)(radius * radius)) && yesDiamond(world)){
-                        world.setBlockState(pos, ores.get(random.nextInt(ores.size())).getDefaultState(), Block.NOTIFY_ALL);
-                    }
-                });
+                if (!ores.isEmpty()){
+                    BlockPos.iterate(blockPos.add(-width, -width, -width), blockPos.add(width, width, width)).forEach(pos -> {
+                        if (world.getBlockState(pos).isIn(DDBlockTagProvider.OBSIDIAN_ORE_REPLACEABLES) && (pos.getSquaredDistance(blockPos) <= (double)(radius * radius)) && yesDiamond(world)){
+                            world.setBlockState(pos, ores.get(random.nextInt(ores.size())).getDefaultState(), Block.NOTIFY_ALL);
+                        }
+                    });
+                }
+                else{
+                    LOGGER.info("[" + MOD_ID + "]: List of obsidian ores is empty!");
+                }
             }
         });
     }
 
+
     public static boolean yesDiamond(World world){
-        return (world.random.nextBetween(1, 100) <= world.getGameRules().getInt(DIAMOND_CONVERSION_PERCENTAGE));
+        return world.getGameRules().getInt(DIAMOND_CONVERSION_PERCENTAGE) >= world.random.nextBetween(1, 100);
     }
 }
