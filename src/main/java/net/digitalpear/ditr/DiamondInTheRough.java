@@ -60,7 +60,7 @@ public class DiamondInTheRough implements ModInitializer {
                     });
                 }
                 else{
-                    LOGGER.info("[" + MOD_ID + "]: List of obsidian ores is empty!");
+                    LOGGER.info("List of obsidian ores is empty!");
                 }
             }
         });

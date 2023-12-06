@@ -31,9 +31,8 @@ public class DDBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(DiamondInTheRough.MOD_ID, blockID), block);
     }
 
-    public static final Block OBSIDIAN_DIAMOND_ORE = createBlockWithItem("obsidian_diamond_ore", new ExperienceDroppingBlock(
-            AbstractBlock.Settings.copy(Blocks.OBSIDIAN).strength(52.0F, 1200.0F).instrument(Instrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL),
-            UniformIntProvider.create(3, 7)));
+    public static final Block OBSIDIAN_DIAMOND_ORE = createBlockWithItem("obsidian_diamond_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7),
+            AbstractBlock.Settings.copy(Blocks.OBSIDIAN).strength(52.0F, 1200.0F).instrument(Instrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
 
 
     public static void init(){
