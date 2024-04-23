@@ -2,7 +2,6 @@ package net.digitalpear.ditr.init;
 
 
 import net.digitalpear.ditr.DiamondInTheRough;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -11,6 +10,7 @@ import net.minecraft.block.ExperienceDroppingBlock;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
@@ -20,7 +20,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 public class DDBlocks {
     public static BlockItem createBlockItem(String blockID, Block block){
-        return Registry.register(Registries.ITEM, new Identifier(DiamondInTheRough.MOD_ID, blockID), new BlockItem(block, new FabricItemSettings()));
+        return Registry.register(Registries.ITEM, new Identifier(DiamondInTheRough.MOD_ID, blockID), new BlockItem(block, new Item.Settings()));
     }
 
     public static Block createBlockWithItem(String blockID, Block block){

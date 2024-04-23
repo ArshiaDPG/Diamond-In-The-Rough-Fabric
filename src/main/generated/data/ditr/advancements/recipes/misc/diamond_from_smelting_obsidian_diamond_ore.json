@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "ditr:obsidian_diamond_ore"
-            ]
+            "items": "ditr:obsidian_diamond_ore"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:diamond_from_smelting_obsidian_diamond_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
