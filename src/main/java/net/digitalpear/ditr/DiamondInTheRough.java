@@ -4,12 +4,20 @@ import net.digitalpear.ditr.common.datagen.tags.DDBlockTagProvider;
 import net.digitalpear.ditr.init.DDBlocks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.GameRules;
@@ -26,7 +34,11 @@ public class DiamondInTheRough implements ModInitializer {
 
 
     public static final GameRules.Key<GameRules.IntRule> DIAMOND_CONVERSION_PERCENTAGE = GameRuleRegistry.register("diamondConversionPercentage",
-            GameRules.Category.MOBS, GameRuleFactory.createIntRule(40));
+            GameRules.Category.MOBS,
+            GameRuleFactory.createIntRule(40));
+    public static final GameRules.Key<GameRules.BooleanRule> HAND_CONVERSION = GameRuleRegistry.register("handDiamondConversion",
+            GameRules.Category.MISC,
+            GameRuleFactory.createBooleanRule(false));
 
     @Override
     public void onInitialize() {
@@ -37,7 +49,33 @@ public class DiamondInTheRough implements ModInitializer {
         }
 
         registerFireballConversion(EntityType.DRAGON_FIREBALL);
+
+        UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
+            ItemStack stack = player.getStackInHand(hand);
+            BlockPos pos = hitResult.getBlockPos();
+            Random random = world.getRandom();
+            if (stack.isOf(Items.DRAGON_BREATH) && world.getBlockState(pos).isIn(DDBlockTagProvider.OBSIDIAN_ORE_REPLACEABLES) && world.getGameRules().getBoolean(HAND_CONVERSION)){
+                List<Block> ores = new ArrayList<>();
+                Registries.BLOCK.iterateEntries(DDBlockTagProvider.DRAGON_MADE_ORES).forEach((entry) -> ores.add(entry.value()));
+
+                if (!ores.isEmpty()){
+                    world.setBlockState(pos, ores.get(random.nextInt(ores.size())).getDefaultState(), Block.NOTIFY_ALL);
+                    if (!player.isCreative()){
+                        stack.decrement(1);
+                        player.giveItemStack(Items.GLASS_BOTTLE.getDefaultStack());
+                    }
+                    world.playSound(null, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                }
+                else{
+                    LOGGER.info("List of obsidian ores is empty!");
+                }
+
+                return ActionResult.SUCCESS;
+            }
+            return ActionResult.PASS;
+        });
     }
+
 
     public static void registerFireballConversion(EntityType<?> fireball){
         ServerEntityEvents.ENTITY_UNLOAD.register((entity, world) -> {
@@ -62,6 +100,7 @@ public class DiamondInTheRough implements ModInitializer {
                 else{
                     LOGGER.info("List of obsidian ores is empty!");
                 }
+
             }
         });
     }
