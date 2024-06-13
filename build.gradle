@@ -114,11 +114,10 @@ unifiedPublishing {
         displayName = "${project.minecraft_version}-fabric-${project.mod_version}" // Optional, name of the file
         version = "${project.mod_version}" // Optional, Inferred from project by default
         changelog = '''<ul>
-  <li>It is now possible to create Obsidian Diamond Ore by hand using Dragon's Breath.</li>
-  <li>Added gamerule for Obsidian Diamond Ore creation by hand, this is off by default.</li>
+  <li>Updated to 1.21.</li>
 </ul> '''
         releaseType = "release" // Optional, use "release", "beta" or "alpha"
-        gameVersions = ["${project.minecraft_version}", "1.20.6"]
+        gameVersions = ["${project.minecraft_version}"]
         gameLoaders = ["fabric"]
 
         mainPublication tasks.remapJar
