@@ -34,7 +34,10 @@ public class DDBlockTagProvider extends FabricTagProvider<Block> {
     public static final TagKey<Block> DRAGON_MADE_ORES = of("dragon_made_ores");
 
     private static TagKey<Block> of(String id) {
-        return TagKey.of(RegistryKeys.BLOCK, Identifier.of(DiamondInTheRough.MOD_ID, id));
+        return of(DiamondInTheRough.MOD_ID, id);
+    }
+    private static TagKey<Block> of(String nameSpace, String id) {
+        return TagKey.of(RegistryKeys.BLOCK, Identifier.of(nameSpace, id));
     }
 
     @Override

@@ -4,9 +4,7 @@
   "cookingtime": 200,
   "experience": 1.0,
   "group": "diamond",
-  "ingredient": {
-    "item": "ditr:obsidian_diamond_ore"
-  },
+  "ingredient": "ditr:obsidian_diamond_ore",
   "result": {
     "id": "minecraft:diamond"
   }

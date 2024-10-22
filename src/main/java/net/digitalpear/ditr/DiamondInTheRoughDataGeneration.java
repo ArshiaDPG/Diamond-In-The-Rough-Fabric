@@ -1,14 +1,12 @@
 package net.digitalpear.ditr;
 
 
-import net.digitalpear.ditr.common.datagen.DDLanguageProvider;
-import net.digitalpear.ditr.common.datagen.DDLootTableProvider;
-import net.digitalpear.ditr.common.datagen.DDModelProvider;
-import net.digitalpear.ditr.common.datagen.DDRecipeProvider;
+import net.digitalpear.ditr.common.datagen.*;
 import net.digitalpear.ditr.common.datagen.tags.DDBlockTagProvider;
 import net.digitalpear.ditr.common.datagen.tags.DDItemTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.registry.RegistryBuilder;
 
 public class DiamondInTheRoughDataGeneration implements DataGeneratorEntrypoint {
 
@@ -24,4 +22,5 @@ public class DiamondInTheRoughDataGeneration implements DataGeneratorEntrypoint 
         pack.addProvider(DDBlockTagProvider::new);
         pack.addProvider(DDItemTagProvider::new);
     }
+
 }
