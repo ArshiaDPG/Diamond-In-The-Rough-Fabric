@@ -65,7 +65,7 @@ public class DiamondInTheRough implements ModInitializer {
             Random random = world.getRandom();
             if (stack.isOf(Items.DRAGON_BREATH) && world.getBlockState(pos).isIn(DDBlockTagProvider.OBSIDIAN_ORE_REPLACEABLES)){
                 if (world instanceof ServerWorld && !world.getServer().getGameRules().getBoolean(HAND_CONVERSION)){
-                    return ActionResult.PASS;
+                    return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
                 }
                 List<Block> ores = new ArrayList<>();
                 Registries.BLOCK.iterateEntries(DDBlockTagProvider.DRAGON_MADE_ORES).forEach((entry) -> ores.add(entry.value()));
