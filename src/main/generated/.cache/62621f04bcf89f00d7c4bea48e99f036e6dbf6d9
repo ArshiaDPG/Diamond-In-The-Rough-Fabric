@@ -1,5 +1,5 @@
-// 1.21.4	2024-12-03T11:45:11.2511396	Diamond In The Rough/recipe
-dd4e74f8b49e12d060a85af6a393c718f4d5181d data\ditr\advancement\recipes\misc\diamond_from_smelting_obsidian_diamond_ore.json
-6b73196eac9ab3ff36c92e5586658e9e6efb5dda data\ditr\recipe\diamond_from_smelting_obsidian_diamond_ore.json
-d49fcd9201f1d1d303e6d61b9ec052cbeb7d6b37 data\ditr\advancement\recipes\misc\diamond_from_blasting_obsidian_diamond_ore.json
-9cd61fc447eee98891e21e2c7ae537952a2dca1f data\ditr\recipe\diamond_from_blasting_obsidian_diamond_ore.json
+// 1.21.5 Release Candidate 1	-999999999-01-01T00:00:00	Diamond In The Rough/recipe
+d49fcd9201f1d1d303e6d61b9ec052cbeb7d6b37 data/ditr/advancement/recipes/misc/diamond_from_blasting_obsidian_diamond_ore.json
+dd4e74f8b49e12d060a85af6a393c718f4d5181d data/ditr/advancement/recipes/misc/diamond_from_smelting_obsidian_diamond_ore.json
+9cd61fc447eee98891e21e2c7ae537952a2dca1f data/ditr/recipe/diamond_from_blasting_obsidian_diamond_ore.json
+6b73196eac9ab3ff36c92e5586658e9e6efb5dda data/ditr/recipe/diamond_from_smelting_obsidian_diamond_ore.json
