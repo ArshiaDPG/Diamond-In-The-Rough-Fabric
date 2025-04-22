@@ -5,6 +5,7 @@ import net.digitalpear.ditr.DiamondInTheRough;
 import net.digitalpear.ditr.init.DDBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registries;
@@ -50,6 +51,6 @@ public class DDBlockTagProvider extends FabricTagProvider<Block> {
         getOrCreateTagBuilder(OBSIDIAN_ORE_REPLACEABLES).add(Blocks.OBSIDIAN);
         getOrCreateTagBuilder(DRAGON_MADE_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
 
-
+        getOrCreateTagBuilder(ConventionalBlockTags.NORMAL_OBSIDIANS).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
     }
 }

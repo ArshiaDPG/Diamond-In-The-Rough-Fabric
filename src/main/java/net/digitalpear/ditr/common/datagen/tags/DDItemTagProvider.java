@@ -4,6 +4,8 @@ package net.digitalpear.ditr.common.datagen.tags;
 import net.digitalpear.ditr.init.DDBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
@@ -27,5 +29,7 @@ public class DDItemTagProvider extends FabricTagProvider<Item> {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(ItemTags.DIAMOND_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem());
+
+        getOrCreateTagBuilder(ConventionalItemTags.NORMAL_OBSIDIANS).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem());
     }
 }

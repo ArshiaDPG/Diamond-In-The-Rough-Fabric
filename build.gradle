@@ -114,8 +114,7 @@ unifiedPublishing {
         displayName = "${project.minecraft_version}-fabric-${project.mod_version}" // Optional, name of the file
         version = "${project.mod_version}" // Optional, Inferred from project by default
         changelog = '''<ul>
-  <li>Updated to 1.21.5.</li>
-  <li>It is now possible to apply dragon's breath onto obsidian using dispensers (if possible to do it by hand).</li>
+  <li>Added Obsidian Diamond Ore to the conventional tags.</li>
 </ul> '''
         releaseType = "release" // Optional, use "release", "beta" or "alpha"
         gameVersions = ["${project.minecraft_version}"]
