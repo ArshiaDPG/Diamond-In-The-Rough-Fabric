@@ -115,6 +115,7 @@ unifiedPublishing {
         version = "${project.mod_version}" // Optional, Inferred from project by default
         changelog = '''<ul>
   <li>Added Obsidian Diamond Ore to the conventional tags.</li>
+  <li>Russian translation updated by mpustovoi.</li>
 </ul> '''
         releaseType = "release" // Optional, use "release", "beta" or "alpha"
         gameVersions = ["${project.minecraft_version}"]
