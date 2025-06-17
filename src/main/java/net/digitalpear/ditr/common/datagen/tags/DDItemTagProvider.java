@@ -7,9 +7,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -28,8 +30,12 @@ public class DDItemTagProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(ItemTags.DIAMOND_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem());
+        getTagBuilder(ItemTags.DIAMOND_ORES).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
 
-        getOrCreateTagBuilder(ConventionalItemTags.NORMAL_OBSIDIANS).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem());
+        getTagBuilder(ConventionalItemTags.NORMAL_OBSIDIANS).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
+    }
+
+    public static Identifier getId(ItemConvertible block){
+        return Registries.ITEM.getId(block.asItem());
     }
 }

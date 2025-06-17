@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_from_blasting_obsidian_diamond_ore"
+        "recipe": "ditr:diamond_from_blasting_obsidian_diamond_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_from_blasting_obsidian_diamond_ore"
+      "ditr:diamond_from_blasting_obsidian_diamond_ore"
     ]
   }
 }

@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -43,14 +44,18 @@ public class DDBlockTagProvider extends FabricTagProvider<Block> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(BlockTags.DIAMOND_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
-        getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
+        getTagBuilder(BlockTags.DIAMOND_ORES).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
+        getTagBuilder(BlockTags.PICKAXE_MINEABLE).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
+        getTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
+        getTagBuilder(BlockTags.DRAGON_IMMUNE).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
 
-        getOrCreateTagBuilder(OBSIDIAN_ORE_REPLACEABLES).add(Blocks.OBSIDIAN);
-        getOrCreateTagBuilder(DRAGON_MADE_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
+        getTagBuilder(OBSIDIAN_ORE_REPLACEABLES).add(getId(Blocks.OBSIDIAN));
+        getTagBuilder(DRAGON_MADE_ORES).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
 
-        getOrCreateTagBuilder(ConventionalBlockTags.NORMAL_OBSIDIANS).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
+        getTagBuilder(ConventionalBlockTags.NORMAL_OBSIDIANS).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
+    }
+
+    public static Identifier getId(ItemConvertible block){
+        return Registries.ITEM.getId(block.asItem());
     }
 }
