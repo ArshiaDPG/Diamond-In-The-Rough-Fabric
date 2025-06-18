@@ -49,7 +49,7 @@ public class DDBlockTagProvider extends FabricTagProvider<Block> {
         getTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
         getTagBuilder(BlockTags.DRAGON_IMMUNE).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
 
-        getTagBuilder(OBSIDIAN_ORE_REPLACEABLES).add(getId(Blocks.OBSIDIAN));
+        getTagBuilder(OBSIDIAN_ORE_REPLACEABLES).addTag(ConventionalBlockTags.NORMAL_OBSIDIANS.id());
         getTagBuilder(DRAGON_MADE_ORES).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
 
         getTagBuilder(ConventionalBlockTags.NORMAL_OBSIDIANS).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
