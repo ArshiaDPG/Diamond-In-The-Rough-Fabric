@@ -4,38 +4,23 @@ package net.digitalpear.ditr.common.datagen.tags;
 import net.digitalpear.ditr.init.DDBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
-public class DDItemTagProvider extends FabricTagProvider<Item> {
-    /**
-     * Constructs a new {@link FabricTagProvider} with the default computed path.
-     *
-     * <p>Common implementations of this class are provided.
-     *
-     * @param output           the {@link FabricDataOutput} instance
-     * @param registriesFuture the backing registry for the tag type
-     */
+public class DDItemTagProvider extends FabricTagProvider.ItemTagProvider{
+
+
     public DDItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, Registries.ITEM.getKey(), registriesFuture);
+        super(output, registriesFuture, new DDBlockTagProvider(output, registriesFuture));
     }
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getTagBuilder(ItemTags.DIAMOND_ORES).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
-
-        getTagBuilder(ConventionalItemTags.NORMAL_OBSIDIANS).add(getId(DDBlocks.OBSIDIAN_DIAMOND_ORE));
+        valueLookupBuilder(ItemTags.DIAMOND_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem());
+        valueLookupBuilder(ConventionalItemTags.NORMAL_OBSIDIANS).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem());
     }
 
-    public static Identifier getId(ItemConvertible block){
-        return Registries.ITEM.getId(block.asItem());
-    }
 }
