@@ -15,6 +15,7 @@ public class DDModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(DDBlocks.OBSIDIAN_DIAMOND_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(DDBlocks.BEDROCK_DIAMOND_ORE);
 
     }
 

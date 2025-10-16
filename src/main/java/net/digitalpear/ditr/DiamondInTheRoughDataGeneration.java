@@ -4,9 +4,14 @@ package net.digitalpear.ditr;
 import net.digitalpear.ditr.common.datagen.*;
 import net.digitalpear.ditr.common.datagen.tags.DDBlockTagProvider;
 import net.digitalpear.ditr.common.datagen.tags.DDItemTagProvider;
+import net.digitalpear.ditr.common.datagen.worldgen.DDConfiguredFeatureProvider;
+import net.digitalpear.ditr.common.datagen.worldgen.DDPlacedFeatureProvider;
+import net.digitalpear.ditr.init.DDConfiguredFeatures;
+import net.digitalpear.ditr.init.DDPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
+import net.minecraft.registry.RegistryKeys;
 
 public class DiamondInTheRoughDataGeneration implements DataGeneratorEntrypoint {
 
@@ -21,6 +26,14 @@ public class DiamondInTheRoughDataGeneration implements DataGeneratorEntrypoint 
 
         pack.addProvider(DDBlockTagProvider::new);
         pack.addProvider(DDItemTagProvider::new);
+
+        pack.addProvider(DDConfiguredFeatureProvider::new);
+        pack.addProvider(DDPlacedFeatureProvider::new);
     }
 
+    @Override
+    public void buildRegistry(RegistryBuilder registryBuilder) {
+        registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, DDConfiguredFeatures::bootstrap);
+        registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, DDPlacedFeatures::bootstrap);
+    }
 }

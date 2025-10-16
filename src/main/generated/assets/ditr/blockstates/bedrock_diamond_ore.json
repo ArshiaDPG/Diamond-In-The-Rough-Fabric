@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ditr:block/bedrock_diamond_ore"
+    }
+  }
+}

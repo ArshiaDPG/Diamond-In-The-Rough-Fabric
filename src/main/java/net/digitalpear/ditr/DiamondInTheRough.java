@@ -3,6 +3,7 @@ package net.digitalpear.ditr;
 
 import net.digitalpear.ditr.common.datagen.tags.DDBlockTagProvider;
 import net.digitalpear.ditr.init.DDBlocks;
+import net.digitalpear.ditr.init.DDPlacedFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -54,6 +55,7 @@ public class DiamondInTheRough implements ModInitializer {
     @Override
     public void onInitialize() {
         DDBlocks.init();
+        DDPlacedFeatures.init();
 
         if (FabricLoader.getInstance().isDevelopmentEnvironment()){
             registerFireballConversion(EntityType.FIREBALL);

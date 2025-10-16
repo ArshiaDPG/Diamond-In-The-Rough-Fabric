@@ -18,6 +18,7 @@ public class DDLanguageProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(DDBlocks.OBSIDIAN_DIAMOND_ORE, "Obsidian Diamond Ore");
+        translationBuilder.add(DDBlocks.BEDROCK_DIAMOND_ORE, "Bedrock Diamond Ore");
         translationBuilder.add("gamerule.diamondConversionPercentage", "Obsidian to diamond conversion chance");
         translationBuilder.add("gamerule.handDiamondConversion", "Can obsidian be converted into diamond ore by hand using dragon's breath?");
     }

@@ -19,7 +19,7 @@ public class DDItemTagProvider extends FabricTagProvider.ItemTagProvider{
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        valueLookupBuilder(ItemTags.DIAMOND_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem());
+        valueLookupBuilder(ItemTags.DIAMOND_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem(), DDBlocks.BEDROCK_DIAMOND_ORE.asItem());
         valueLookupBuilder(ConventionalItemTags.NORMAL_OBSIDIANS).add(DDBlocks.OBSIDIAN_DIAMOND_ORE.asItem());
     }
 

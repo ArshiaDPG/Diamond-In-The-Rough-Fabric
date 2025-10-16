@@ -1,8 +1,8 @@
-// 1.21.6	-999999999-01-01T00:00:00	Diamond In The Rough/Tags for minecraft:block
+// 1.21.9-rc1	-999999999-01-01T00:00:00	Diamond In The Rough/Tags for minecraft:block
 9fcb8984bab3c8fe4cefa77a6d8cbb1630f7c6f1 data/c/tags/block/obsidians/normal.json
 9fcb8984bab3c8fe4cefa77a6d8cbb1630f7c6f1 data/ditr/tags/block/dragon_made_ores.json
 454298ba11e5430d70aa25a16ce400e94ac31715 data/ditr/tags/block/obsidian_ore_replaceables.json
-9fcb8984bab3c8fe4cefa77a6d8cbb1630f7c6f1 data/minecraft/tags/block/diamond_ores.json
-9fcb8984bab3c8fe4cefa77a6d8cbb1630f7c6f1 data/minecraft/tags/block/dragon_immune.json
+356a17a39567fd824ecb7d3f31c5f246ff64b5fc data/minecraft/tags/block/diamond_ores.json
+356a17a39567fd824ecb7d3f31c5f246ff64b5fc data/minecraft/tags/block/dragon_immune.json
 9fcb8984bab3c8fe4cefa77a6d8cbb1630f7c6f1 data/minecraft/tags/block/mineable/pickaxe.json
 9fcb8984bab3c8fe4cefa77a6d8cbb1630f7c6f1 data/minecraft/tags/block/needs_diamond_tool.json

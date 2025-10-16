@@ -35,10 +35,10 @@ public class DDBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
 
-        valueLookupBuilder(BlockTags.DIAMOND_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
+        valueLookupBuilder(BlockTags.DIAMOND_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE, DDBlocks.BEDROCK_DIAMOND_ORE);
         valueLookupBuilder(BlockTags.PICKAXE_MINEABLE).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
         valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
-        valueLookupBuilder(BlockTags.DRAGON_IMMUNE).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
+        valueLookupBuilder(BlockTags.DRAGON_IMMUNE).add(DDBlocks.OBSIDIAN_DIAMOND_ORE, DDBlocks.BEDROCK_DIAMOND_ORE);
 
         valueLookupBuilder(OBSIDIAN_ORE_REPLACEABLES).forceAddTag(ConventionalBlockTags.NORMAL_OBSIDIANS);
         valueLookupBuilder(DRAGON_MADE_ORES).add(DDBlocks.OBSIDIAN_DIAMOND_ORE);
