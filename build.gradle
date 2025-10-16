@@ -114,11 +114,10 @@ unifiedPublishing {
         displayName = "${project.minecraft_version}-fabric-${project.mod_version}" // Optional, name of the file
         version = "${project.mod_version}" // Optional, Inferred from project by default
         changelog = '''<ul>
-  <li>Updated to 1.21.6.</li>
-  <li>Obsidian ores can now replace all blocks in the "c:obsidians/normal" tag.</li>
+  <li>Added Bedrock Diamond Ore.</li>
 </ul> '''
         releaseType = "release" // Optional, use "release", "beta" or "alpha"
-        gameVersions = ["${project.minecraft_version}"]
+        gameVersions = ["${project.minecraft_version}", "1.21.10"]
         gameLoaders = ["fabric"]
 
         mainPublication tasks.remapJar
