@@ -3,10 +3,7 @@ package net.digitalpear.ditr.init;
 
 import net.digitalpear.ditr.DiamondInTheRough;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ExperienceDroppingBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
@@ -37,7 +34,7 @@ public class DDBlocks {
             settings -> new ExperienceDroppingBlock(UniformIntProvider.create(3, 7),settings),
             AbstractBlock.Settings.copy(Blocks.OBSIDIAN).strength(52.0F, 1200.0F).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL));
 
-    public static final Block BEDROCK_DIAMOND_ORE = createBlockWithItem("bedrock_diamond_ore", Block::new, AbstractBlock.Settings.copy(Blocks.BEDROCK).instrument(NoteBlockInstrument.BASEDRUM));
+    public static final Block BEDROCK_DIAMOND_ORE = createBlockWithItem("bedrock_diamond_ore", Block::new, AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).strength(-1.0F, 3600000.0F).dropsNothing().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM));
 
     public static void init(){
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> entries.addAfter(Items.DEEPSLATE_DIAMOND_ORE, OBSIDIAN_DIAMOND_ORE, BEDROCK_DIAMOND_ORE));

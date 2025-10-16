@@ -4,5 +4,6 @@
 454298ba11e5430d70aa25a16ce400e94ac31715 data/ditr/tags/block/obsidian_ore_replaceables.json
 356a17a39567fd824ecb7d3f31c5f246ff64b5fc data/minecraft/tags/block/diamond_ores.json
 356a17a39567fd824ecb7d3f31c5f246ff64b5fc data/minecraft/tags/block/dragon_immune.json
+5a3423153669559c4b3446cb66c35a0108150bf0 data/minecraft/tags/block/features_cannot_replace.json
 9fcb8984bab3c8fe4cefa77a6d8cbb1630f7c6f1 data/minecraft/tags/block/mineable/pickaxe.json
 9fcb8984bab3c8fe4cefa77a6d8cbb1630f7c6f1 data/minecraft/tags/block/needs_diamond_tool.json
